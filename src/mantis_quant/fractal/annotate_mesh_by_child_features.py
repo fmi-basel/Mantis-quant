@@ -24,7 +24,10 @@ from scipy.spatial import cKDTree
 from vtkmodules.util import numpy_support
 
 from mantis_quant.fractal.fractal_helper_functions import extract_acq_info
-from mantis_quant.meshing.MeshFunctions import export_vtk_polydata, load_mesh_as_polydata
+from mantis_quant.meshing.MeshFunctions import (
+    export_vtk_polydata,
+    load_mesh_as_polydata,
+)
 from mantis_quant.meshing.MeshProjection import assign_vertices_to_nuclei
 
 logger = logging.getLogger("annotate_mesh_by_child_features")

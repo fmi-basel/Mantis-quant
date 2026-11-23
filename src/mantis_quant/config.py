@@ -18,7 +18,6 @@ def init_config(config_file_path):
 
 
 def get_round_names(config_file_path):
-    config = init_config(config_file_path)
     config_params = {
         "round_names": ("00BuildExperiment", "round_names"),
     }

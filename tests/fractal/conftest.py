@@ -1,9 +1,9 @@
 import os
 import shutil
+from pathlib import Path
 
 import pooch
-
-from ..conftest import *  # noqa
+import pytest
 
 
 @pytest.fixture(scope="session")
@@ -210,4 +210,3 @@ def linking_zenodo_zarrs(testdata_path: Path) -> list[str]:
             shutil.rmtree(str(folder))
         shutil.copytree(Path(zarr_full_path) / file_name, folder)
     return [str(f) for f in folders]
-

@@ -6,12 +6,10 @@ from fractal_tasks_core.channels import ChannelInputModel
 from numpy.testing import assert_almost_equal
 
 from mantis_quant.fractal.feature_measurements import feature_measurements
-
 from mantis_quant.fractal.init_select_reference_knowing_all import (
     init_select_reference_knowing_all,
 )
 from mantis_quant.fractal.mesh_measurements import mesh_measurements
-
 from mantis_quant.fractal.spherical_harmonics_from_labelimage import (
     spherical_harmonics_from_labelimage,
 )
@@ -938,6 +936,7 @@ def test_surface_mesh_multiscale(linking_zenodo_zarrs, name=name_3d):
     # check that 3 mesh files were written
     assert len(os.listdir(output_mesh_path)) == 3
 
+
 def test_surface_mesh_grouped(linking_zenodo_zarrs, name=name_3d):
     zarr_urls = select_zarr_urls(name, linking_zenodo_zarrs)
 
@@ -967,6 +966,7 @@ def test_surface_mesh_grouped(linking_zenodo_zarrs, name=name_3d):
     output_mesh_path = f"{zarr_url}/meshes/{label_name}_grouped"
     # check that 3 mesh files were written
     assert len(os.listdir(output_mesh_path)) == 3
+
 
 def test_surface_mesh_per_object(linking_zenodo_zarrs, name=name_3d):
     zarr_urls = select_zarr_urls(name, linking_zenodo_zarrs)
@@ -998,6 +998,7 @@ def test_surface_mesh_per_object(linking_zenodo_zarrs, name=name_3d):
     output_mesh_path = f"{zarr_url}/meshes/{label_name}"
     # check that 3 mesh files were written
     assert len(os.listdir(output_mesh_path)) == 3
+
 
 def test_sphr_harmonics_from_labelimage(linking_zenodo_zarrs, name=name_3d):
     zarr_urls = select_zarr_urls(name, linking_zenodo_zarrs)
@@ -1036,6 +1037,7 @@ def test_sphr_harmonics_from_labelimage(linking_zenodo_zarrs, name=name_3d):
         assert_almost_equal(
             output[:, 0], test_sphr_harmonics_from_labelimg_expected_output, decimal=5
         )
+
 
 def test_mesh_measurements(linking_zenodo_zarrs, name=name_3d):
     zarr_urls = select_zarr_urls(name, linking_zenodo_zarrs)
@@ -1079,6 +1081,7 @@ def test_mesh_measurements(linking_zenodo_zarrs, name=name_3d):
         output[:, 0], test_sphr_harmonics_from_mesh_expected_output, decimal=4
     )
 
+
 def test_masking_feature_measurements(linking_zenodo_zarrs, name=name_3d):
 
     zarr_urls = select_zarr_urls(name, linking_zenodo_zarrs)
@@ -1114,4 +1117,3 @@ def test_masking_feature_measurements(linking_zenodo_zarrs, name=name_3d):
     assert_almost_equal(
         output, test_masking_feature_measurements_expected_output, decimal=3
     )
-
